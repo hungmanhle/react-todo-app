@@ -34,23 +34,18 @@ class App extends Component {
         modifiedTodo,
         ...this.state.todos.slice(index + 1)
       ]
-    },
-      () => {
-        localStorage.setItem('todo-list', JSON.stringify(this.state.todos));
-      });
+    }, () => localStorage.setItem('todo-list', JSON.stringify(this.state.todos)));
   }
-  remTodo(index){
+  remTodo(index) {
     this.setState({
       todos: this.state.todos.filter((_, i) => i !== index)
     }, () => localStorage.setItem('todo-list', JSON.stringify(this.state.todos)));
   }
   changeDisplay(filt) {
-    console.log(this.state.display);
-    console.log(filt);
     this.setState({ display: filt });
   }
-  filterTodos() {
-    switch (this.state.display) {
+  filterTodos(override) {
+    switch (override || this.state.display) {
       case 'All':
         return this.state.todos;
       case 'Active':
@@ -66,7 +61,6 @@ class App extends Component {
       <div className="App">
         <h1>todos</h1>
         <TodoInput addTodo={this.addTodo.bind(this)} />
-
         {!!this.state.todos && this.filterTodos().map((todo, i) =>
           <Todo content={todo.content}
             id={i}
@@ -74,7 +68,7 @@ class App extends Component {
             completed={todo.completed}
             del={this.remTodo.bind(this)}
             toggle={this.markTodo.bind(this)} />)}
-        <Filter numItems={this.state.todos.length}
+        <Filter numItems={this.filterTodos('Active').length}
           changeFilter={this.changeDisplay.bind(this)}
           display={this.state.display} />
       </div>

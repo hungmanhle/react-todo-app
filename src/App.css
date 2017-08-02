@@ -1,3 +1,8 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   background-color: #ddd;
 }
@@ -8,34 +13,6 @@ body {
   margin: 5em auto;
    background-color: #fff; 
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .completed label{
   text-decoration: line-through;
   background-color: #ddd;
@@ -49,7 +26,6 @@ body {
 
 .todo {
   width: 100%;
-  height: 40px;
   border: 1px solid #444;
   border-top: 0px;
   display: flex;
@@ -70,7 +46,7 @@ body {
   flex: 8;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-  line-height: 15px;
+  line-height: 1.4em;
   margin: .25rem;
   border: 0;
   padding: .25rem;
@@ -84,9 +60,8 @@ body {
 }
 
 .todo > form > input[type=text] {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-  line-height: 15px;
   border: 0;
   width: 100%;
 }
@@ -99,9 +74,9 @@ body {
 }
 
 .button {
-  padding: 12px;
+  padding: 0.5rem 1.5rem;
   border: 1px #444 solid;
-  border-radius: 20px;
+  border-radius: 19px;
   cursor: pointer;
   font-size: 20px;
   font-weight: 400;
